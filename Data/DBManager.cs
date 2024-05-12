@@ -19,20 +19,21 @@ namespace Data
             Text = text;
         }
 
-
         public override string ToString()
         {
             return $"Id: {Id}, Text: {Text}";
         }
     }
+
     public class DBManager
     {
-        public string ConnectionString = "Data Source=\"10.0.0.40, 1433\";Initial Catalog=ado_test;User ID=student;Password=1111;Encrypt=True;Trust Server Certificate=True";
+        public string ConnectionString = "Data Source=10.0.0.40,1433;Initial Catalog=ado_test;User ID=student;Password=1111;Encrypt=True;Trust Server Certificate=True";
 
         public DBManager()
         {
 
         }
+
         public List<Test> SelectFromDb()
         {
             try
@@ -95,17 +96,50 @@ namespace Data
 
         public void OpenConnection()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(this.ConnectionString))
+                {
+                    connection.Open();
+                    // Optionally, you can perform some actions after opening the connection
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public void CloseConnection()
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Connection closing is handled automatically when the connection object goes out of scope,
+                // but you can explicitly close it if needed
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public DataTable GetAllStationery()
         {
-            throw new NotImplementedException();
+            try
+            {
+                DataTable result = new DataTable();
+                using (SqlConnection connection = new SqlConnection(this.ConnectionString))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Stationery", connection);
+                    adapter.Fill(result);
+                }
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public List<string> GetAllStationeryTypes()
