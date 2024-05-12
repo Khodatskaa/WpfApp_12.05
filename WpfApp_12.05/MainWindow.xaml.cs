@@ -66,7 +66,6 @@ namespace WpfApp_12._05
             try
             {
                 DataTable stationeryTable = _dbManager.GetAllStationery();
-                // Display stationeryTable in your UI
                 Message = "Displayed all stationery.";
             }
             catch (Exception ex)
@@ -80,7 +79,6 @@ namespace WpfApp_12._05
             try
             {
                 List<string> types = _dbManager.GetAllStationeryTypes();
-                // Display types in your UI
                 Message = "Displayed all types of stationery.";
             }
             catch (Exception ex)
@@ -94,7 +92,6 @@ namespace WpfApp_12._05
             try
             {
                 List<string> managers = _dbManager.GetAllSalesManagers();
-                // Display managers in your UI
                 Message = "Displayed all sales managers.";
             }
             catch (Exception ex)
@@ -108,7 +105,6 @@ namespace WpfApp_12._05
             try
             {
                 DataTable maxUnitsStationery = _dbManager.GetStationeryWithMaxUnits();
-                // Display maxUnitsStationery in your UI
                 Message = "Displayed stationery with maximum number of units.";
             }
             catch (Exception ex)
@@ -122,7 +118,6 @@ namespace WpfApp_12._05
             try
             {
                 DataTable minUnitsStationery = _dbManager.GetStationeryWithMinUnits();
-                // Display minUnitsStationery in your UI
                 Message = "Displayed stationery with minimum number of units.";
             }
             catch (Exception ex)
@@ -136,7 +131,6 @@ namespace WpfApp_12._05
             try
             {
                 DataTable minCostStationery = _dbManager.GetStationeryWithMinCost();
-                // Display minCostStationery in your UI
                 Message = "Displayed stationery with minimum unit cost.";
             }
             catch (Exception ex)
@@ -150,7 +144,6 @@ namespace WpfApp_12._05
             try
             {
                 DataTable maxCostStationery = _dbManager.GetStationeryWithMaxCost();
-                // Display maxCostStationery in your UI
                 Message = "Displayed stationery with maximum unit cost.";
             }
             catch (Exception ex)
@@ -164,9 +157,8 @@ namespace WpfApp_12._05
         {
             try
             {
-                string selectedType = ""; // Get the selected type from your UI
+                string selectedType = ""; 
                 DataTable stationeryByType = _dbManager.GetStationeryByType(selectedType);
-                // Display stationeryByType in your UI
                 Message = $"Displayed stationery of type: {selectedType}.";
             }
             catch (Exception ex)
@@ -179,9 +171,8 @@ namespace WpfApp_12._05
         {
             try
             {
-                string selectedManager = ""; // Get the selected manager from your UI
+                string selectedManager = ""; 
                 DataTable stationeryByManager = _dbManager.GetStationeryByManager(selectedManager);
-                // Display stationeryByManager in your UI
                 Message = $"Displayed stationery sold by manager: {selectedManager}.";
             }
             catch (Exception ex)
@@ -194,9 +185,8 @@ namespace WpfApp_12._05
         {
             try
             {
-                string selectedBuyer = ""; // Get the selected buyer from your UI
+                string selectedBuyer = ""; 
                 DataTable stationeryByBuyer = _dbManager.GetStationeryByBuyer(selectedBuyer);
-                // Display stationeryByBuyer in your UI
                 Message = $"Displayed stationery purchased by buyer: {selectedBuyer}.";
             }
             catch (Exception ex)
@@ -210,7 +200,6 @@ namespace WpfApp_12._05
             try
             {
                 DataRow recentSale = _dbManager.GetRecentSale();
-                // Display recentSale in your UI
                 Message = "Displayed information about recent sale.";
             }
             catch (Exception ex)
@@ -224,7 +213,6 @@ namespace WpfApp_12._05
             try
             {
                 Dictionary<string, double> averageItemsPerType = _dbManager.GetAverageItemsPerType();
-                // Display averageItemsPerType in your UI
                 Message = "Displayed average number of items for each type of stationery.";
             }
             catch (Exception ex)
